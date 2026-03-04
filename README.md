@@ -27,3 +27,7 @@ Este repositorio ahora incluye una estructura práctica para que puedas construi
 
 ## Implementación y prueba final
 - `GUIA_PASO_A_PASO_PRUEBA_FINAL.md`: pasos concretos para construir el archivo final y ejecutar una prueba piloto.
+
+## Automatización VBA (clics)
+- `GUIA_AUTOMATIZACION_VBA.md`: instalación y ejecución de macros para crear todo el archivo automáticamente.
+- `vba/JMVISION_Automatizacion.bas`: módulo VBA listo para importar en Excel.
