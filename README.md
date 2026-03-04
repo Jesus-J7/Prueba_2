@@ -10,6 +10,7 @@ Este repositorio ahora incluye una estructura práctica para que puedas construi
 - Cálculo automático de subtotales, impuestos y total.
 - Control de estatus (enviada, aprobada, rechazada).
 - Registro histórico de cotizaciones.
+- Búsqueda por palabra clave del producto (ej. "cámaras") con autocompletado de datos.
 
 ## Archivo principal
 - `excel_cotizaciones_template.md`: guía paso a paso con la estructura de hojas, columnas y fórmulas para usar en Excel.

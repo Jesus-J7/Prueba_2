@@ -103,6 +103,36 @@ Copia las fórmulas hacia abajo para todas las filas de ítems.
 
 ---
 
+
+## 4.1) Búsqueda inteligente de producto (ejemplo: "cámaras")
+Si escribes una palabra clave en vez del código exacto (por ejemplo `camaras`), puedes devolver automáticamente el **SKU** y completar toda la información del producto.
+
+### Opción recomendada (Excel 365): celda de búsqueda + filtros
+1. Crea una celda de búsqueda, por ejemplo `J4`, con el texto del producto (ej. `camaras`).
+2. En `J6` devuelve el SKU sugerido:
+   ```excel
+   =SI.ERROR(INDICE(FILTRAR(PRODUCTOS!A:A,ESNUMERO(HALLAR(MINUSC($J$4),MINUSC(PRODUCTOS!B:B)))),1),"SIN RESULTADO")
+   ```
+3. En la tabla de ítems, en `A12`, usa el SKU sugerido:
+   ```excel
+   =SI($J$6="SIN RESULTADO","",$J$6)
+   ```
+4. Con ese SKU, se autocompleta descripción, precio, IVA y demás columnas con `BUSCARX`.
+
+### Campos extra para mostrar “toda la información” del producto
+Puedes ampliar la tabla de ítems para que al elegir SKU también se llenen estos datos:
+
+| Columna | Nombre | Fórmula |
+|---|---|---|
+| I | Categoría | `=SI.ERROR(BUSCARX(A12,PRODUCTOS!A:A,PRODUCTOS!C:C),"")` |
+| J | Unidad | `=SI.ERROR(BUSCARX(A12,PRODUCTOS!A:A,PRODUCTOS!D:D),"")` |
+| K | Stock disponible | `=SI.ERROR(BUSCARX(A12,PRODUCTOS!A:A,PRODUCTOS!F:F),0)` |
+| L | Estado producto | `=SI.ERROR(BUSCARX(A12,PRODUCTOS!A:A,PRODUCTOS!G:G),"")` |
+
+> Resultado: al buscar “cámaras” y seleccionar el código encontrado, el Excel muestra automáticamente descripción, precio y datos completos del producto.
+
+---
+
 ## 5) Hoja: `HISTORICO_COTIZACIONES`
 Control de todas las cotizaciones emitidas.
 
@@ -140,7 +170,7 @@ Para convertir cotizaciones aprobadas en ventas.
 
 ## 7) Automatizaciones recomendadas en Excel
 1. **Validación de datos**
-   - Lista desplegable para `ID_Cliente`, `SKU` y `Estado`.
+   - Lista desplegable para `ID_Cliente`, `SKU` y `Estado` (con búsqueda por palabra clave para productos).
 2. **Formato condicional**
    - Resaltar cotizaciones vencidas en rojo.
    - Estado `Aprobada` en verde.

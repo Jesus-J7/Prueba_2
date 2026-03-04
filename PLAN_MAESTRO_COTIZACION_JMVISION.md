@@ -71,7 +71,8 @@ Catálogo comercial de JMVISION.
 | F | Costo_Referencial |
 | G | Margen_%_Objetivo |
 | H | IVA_Aplica (SI/NO) |
-| I | Estado (Activo/Inactivo) |
+| I | Stock |
+| J | Estado (Activo/Inactivo) |
 
 **Regla:** no usar productos inactivos en cotización.
 
@@ -91,6 +92,19 @@ Plantilla operativa para emitir cotizaciones.
 | Vigencia hasta | B7 | `=B3+CONFIG!B8` |
 | Asesor | B8 | Manual |
 | Moneda | B9 | `=CONFIG!B6` |
+
+
+### Función clave solicitada: búsqueda por palabra y autocompletado total
+Para que al buscar un producto como `camaras` se cargue todo automáticamente:
+- Crear celda de búsqueda (ej. `J4`) para texto libre.
+- Obtener SKU sugerido (ej. `J6`) con `FILTRAR` + `HALLAR`.
+- Pasar SKU a la columna A de ítems.
+- Completar descripción, precio, IVA, categoría, unidad, stock y estado con `BUSCARX`.
+
+Fórmula ejemplo SKU sugerido:
+```excel
+=SI.ERROR(INDICE(FILTRAR(PRODUCTOS!A:A,ESNUMERO(HALLAR(MINUSC($J$4),MINUSC(PRODUCTOS!B:B)))),1),"SIN RESULTADO")
+```
 
 ### Tabla de ítems (desde fila 12)
 | Columna | Campo | Fórmula recomendada |
