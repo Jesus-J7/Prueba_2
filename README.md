@@ -23,3 +23,7 @@ Este repositorio ahora incluye una estructura práctica para que puedas construi
 
 ## Plan maestro JMVISION
 - `PLAN_MAESTRO_COTIZACION_JMVISION.md`: plan de implementación completo para tu archivo comercial en Excel.
+
+
+## Implementación y prueba final
+- `GUIA_PASO_A_PASO_PRUEBA_FINAL.md`: pasos concretos para construir el archivo final y ejecutar una prueba piloto.
