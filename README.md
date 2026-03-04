@@ -19,3 +19,6 @@ Este repositorio ahora incluye una estructura práctica para que puedas construi
 2. Sigue la guía del archivo `excel_cotizaciones_template.md`.
 3. Convierte cada tabla en **Tabla de Excel** (Ctrl + T) para facilitar filtros y fórmulas.
 4. Protege las celdas con fórmulas para evitar cambios accidentales.
+
+## Plan maestro JMVISION
+- `PLAN_MAESTRO_COTIZACION_JMVISION.md`: plan de implementación completo para tu archivo comercial en Excel.
